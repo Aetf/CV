@@ -15,7 +15,7 @@ cv.pdf: cv.tex $(PAGES) $(FIGURES) $(LIBS)
 	xelatex -shell-escape --interaction=nonstopmode cv.tex
 
 clean:
-	rm -rf *.aux *.blg *.out *.log *.bbl *.toc *.backup *.xdv _minted-*
+	rm -rf *.run.xml *.bcf *.aux *.blg *.out *.log *.bbl *.toc *.backup *.xdv _minted-*
 
 distclean: clean
 	rm -rf cv.pdf
