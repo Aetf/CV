@@ -19,3 +19,4 @@ resume.pdf
 *.xdv
 _minted-*
 *.kate-swp
+.kile
