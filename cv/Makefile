@@ -10,7 +10,7 @@ cv.pdf: export BSTINPUTS=lib:
 cv.pdf: cv.tex $(PAGES) $(FIGURES) $(LIBS)
 	echo $(TEXINPUTS) $(BSTINPUTS)
 	xelatex -shell-escape --no-pdf --interaction=nonstopmode cv.tex
-	bibtex cv || true
+	biber cv || true
 	xelatex -shell-escape --no-pdf --interaction=nonstopmode cv.tex
 	xelatex -shell-escape --interaction=nonstopmode cv.tex
 

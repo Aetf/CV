@@ -1,21 +1,33 @@
 \documentclass[a4paper,11pt]{article}
-\usepackage{cv}
-\usepackage{hyperref}
+\usepackage{cv,booktabs,fontawesome}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Change color to blue
+\def\headcolor{\color[rgb]{0,0,0.5}}
+
+% Space before section headings
+\titlespacing{\section}{0pt}{3ex}{1ex}
+
+% bib reference font
+\usepackage[sfdefault,lf,t]{carlito}
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
+\usepackage{inconsolata}
 
 \name{Peifeng Yu}
 \info{%
-    Address: & 2401 Lancashire Dr Apt 1A, Ann Arbor, MI 48105\\
-    Phone:   & +1 734 239 2157\\
-    Email:   & peifeng@umich.edu\\
-    GitHub:  & https://github.com/Aetf
+    \faicon{map-marker} & 2543 Stone Rd, Ann Arbor, MI 48105, USA. \\
+    \faicon{home}       & unlimitedcodeworks.xyz \\
+    \faicon{github}     & Aetf \\
+    \faicon{phone}      & +1 734 239 2157 \\
+    \faicon{envelope}   & peifeng@umich.edu
 }
 
 \bibliography{cv}
 
 %\addtocategory{books}{MWH3,ITSM91,ITSM94,expsmooth08}
-%\addtocategory{papers}{BHG91,BH92,YW93,Hyndman94,HDRF95}
+\addtocategory{papers}{hotos17}
 %\addtocategory{papers}{HDR96,HBG96,HF96,GHH97,HW97,LFSH97,GH98}
-
 
 \begin{document}
 \maketitle
@@ -30,13 +42,27 @@
 
 \section{Research Experience}
 \begin{itemize}
+    \item Salus: Fine-Grained GPU Sharing Between CNN Applications \hfill \textit{From Sep., 2016 to Present}
+    \begin{itemize}
+        \item Framework-independent, consolidated execution service that enforce fine-grained GPU sharing.
+        \item Take care of low-level memory management, GPU task scheduling.
+        \item Prelimilary result shows improvements of GPU memory utilization by 20$\times$ using TensorFlow.
+    \end{itemize}
+
+    \item Deep Tree: SQL Injection Detection by the Power of Deep Learning \hfill \textit{From Sep., 2016 to Mar., 2017}
+    \begin{itemize}
+        \item Tree-based CNN network for SQL statements classification.
+        \item Compiled new SQL statements dataset of 4161 samples.
+        \item Detect SQL injection attack with high accuracy (94.7\%).
+    \end{itemize}
+
     \item System Design of Streaming Video Analysis Application in Storm \hfill \textit{From Apr., 2016 to July, 2016}
     \begin{itemize}
         \item Built Storm topology with several video analysis workload, includeing classification, 
 captioning and object tracking.
         \item Analyzed the latency vs throughput on 3 servers with GPU, to understand the relationship 
-between parallelism hint and performance
-        \item Summer research in Clarity Lab
+between parallelism hint and performance.
+        \item Summer research in Clarity Lab.
     \end{itemize}
 
     \item Evaluation of Graphical Keyboard User Interface \hfill \textit{From Sep., 2015 to Dec., 2015}
@@ -53,7 +79,7 @@ May, 2015}
         \item Bachelor's thesis.
         \item Implemented a neural network classifier using generalized correntropy loss function.
         \item Analyzed the classifier's behavior under varied order parameters in generalized correntropy loss
-function
+function.
     \end{itemize}
 
     \item One year research program in SEAndroid in NSKeyLab \hfill \textit{From Nov., 2013 to Nov., 2014}
@@ -179,15 +205,17 @@ Jun. 2012}
 
 \end{itemize}
 
+%\newpage
 
+\setlength{\bibitemsep}{1.8pt}
 
-%\begin{publications}
-%    \printbib{books}
-%    \printbib{papers}
-%    \printbib{chapters}
-%    \printbib{conferences}
-%    \printbib{techreports}
-%    \printbib{bookreviews}
-%    \printbib{editorials}
-%\end{publications}
+\begin{publications}
+    %\printbib{phd}
+    %\printbib{books}
+    \printbib{papers}
+    %\printbib{chapters}
+    %\printbib{conferences}
+    %\printbib{bookreviews}
+    %\printbib{editorials}
+\end{publications}
 \end{document}

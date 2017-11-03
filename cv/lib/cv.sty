@@ -1,23 +1,31 @@
 %% Curriculum Vitae style file
-%% Rob J Hyndman. Last updated 24 July 2013
+%% Rob J Hyndman. Last updated 6 September 2016
 %% This file may be modified, copied and redistributed without any further permission.
 %% However, if you modify it, please add a note indicating it is a modification of the original.
 %% The original file is available at http://robjhyndman.com/research/cv.sty
 
 \usepackage{paralist,ragged2e,datetime}
-\usepackage{hyperref,fancyhdr,enumitem,color}
+\usepackage[hyphens]{url}
+\usepackage{fancyhdr,enumitem,color,pifont}
 \usepackage[a4paper,text={17.5cm,25.5cm},centering]{geometry}
 \usepackage[compact,small,sf,bf]{titlesec}
 \usepackage{kpfonts,dsfont}
+\usepackage{array}
+% Define ragged right columns within tables
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Color of headings
+\def\headcolor{\color[rgb]{0.6,0,0}}
 
 \RaggedRight
 \sloppy
 
 % Header and footer
 \pagestyle{fancy}
-\lhead{\sf Curriculum Vitae: \@name}
-\rhead{\sf\thepage}
+\lhead{\sf\textcolor[gray]{0.4}{Curriculum Vitae: \@name}}
+\rhead{\sf\textcolor[gray]{0.4}{\thepage}}
 \cfoot{}
+\def\headrule{{\color[gray]{0.4}\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
 
 % Date format
 \newdateformat{rjh}{\monthname~\THEYEAR}
@@ -31,16 +39,17 @@
 \def\maketitle{
 \thispagestyle{plain}
 \vspace*{-1.4cm}
-\shadebox[0.9]{17.3cm}{\sf\color[rgb]{.6,0,0}
-\hbox to 17cm{\begin{tabular}{p{7.4cm}}
+\shadebox[0.9]{17.2cm}{\sf\headcolor\hfil
+\hbox to 17cm{\begin{tabular}{P{7.4cm}}
+\\[-0.3cm]
 \LARGE\textbf{\@name}\\[0.3cm]
 \Large\textbf{Curriculum Vitae}\\[0.6cm]
 \normalsize\today
 \end{tabular}
 \hfill\hbox{\fontsize{9}{12}\sf
-\begin{tabular}{@{}rp{7.2cm}@{}}
+\begin{tabular}{@{}rP{7.5cm}@{}}
 \@info
-\end{tabular}}}
+\end{tabular}}}\hfil
 }
 \vspace*{0.2cm}}
 
@@ -48,7 +57,7 @@
 % Section headings
 \titlelabel{}
 \titlespacing{\section}{0pt}{2ex}{1ex}
-\titleformat*{\section}{\color[rgb]{0.6,0,0}\large\sf\bfseries}
+\titleformat*{\section}{\headcolor\large\sf\bfseries}
 \titlespacing{\subsection}{0pt}{1ex}{0.5ex}
 
 % Miscellaneous dimensions
@@ -63,7 +72,7 @@
 
 % Bibliography formatting
 
-\usepackage[sorting=ynt,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,firstinits=true, uniquename=init,dashed=false,doi=false,isbn=false,backend=biber]{biblatex}
+\usepackage[sorting=ynt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,backend=biber]{biblatex}
 
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat[article]{pages}{#1}
@@ -89,21 +98,22 @@
 % Bibliography categories
 \def\makebibcategory#1#2{\DeclareBibliographyCategory{#1}\defbibheading{#1}{\section*{#2}}}
 \makebibcategory{books}{Books}
-\makebibcategory{papers}{Refereed research papers}
+\makebibcategory{papers}{Research papers}
 \makebibcategory{chapters}{Book chapters}
-\makebibcategory{conferences}{Papers in conference proceedings}
+\makebibcategory{conferences}{Papers in refereed conference proceedings}
 \makebibcategory{techreports}{Unpublished working papers}
 \makebibcategory{bookreviews}{Book reviews}
 \makebibcategory{editorials}{Editorials}
 \makebibcategory{phd}{PhD thesis}
 \makebibcategory{subpapers}{Submitted papers}
 \makebibcategory{curpapers}{Current projects}
+\makebibcategory{software}{Software (R packages)}
 
-\setlength{\bibitemsep}{2.5pt}
-\setlength{\bibhang}{.8cm}
+\setlength{\bibitemsep}{2.3pt}
+\setlength{\bibhang}{.9cm}
 %\renewcommand{\bibfont}{\fontsize{12}{14}}
 
-\renewcommand*{\bibitem}{\addtocounter{papers}{1}\item \mbox{}\hskip-0.85cm\hbox to 0.85cm{\hfill\arabic{papers}.~~}}
+\renewcommand*{\bibitem}{\addtocounter{papers}{1}\item \mbox{}\hskip-0.9cm\hbox to 0.9cm{\hfill\arabic{papers}.~\,}}
 \defbibenvironment{bibliography}
 {\list{}
   {\setlength{\leftmargin}{\bibhang}%
@@ -117,7 +127,7 @@
 }{\label{papersend}\addtocounter{sumpapers}{-1}\refstepcounter{sumpapers}\label{sumpapers}}
 
 \def\printbib#1{\printbibliography[category=#1,heading=#1]\lastref{sumpapers}}
-\renewcommand{\bibfont}{\normalfont\fontsize{11}{13.4}\rmfamily}
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\rmfamily}
 % Counters for keeping track of papers
 \newcounter{papers}\setcounter{papers}{0}
 \newcounter{sumpapers}\setcounter{sumpapers}{0}
@@ -125,3 +135,16 @@
 
 % Add all papers in the bib file.
 \nocite{*}
+
+% Make nicer bullets
+
+\renewcommand{\labelitemi}{\ding{228}}
+
+\DeclareSortingScheme{ty}{
+  \sort{
+    \field{title}
+  }
+  \sort{
+    \field{year}
+  }
+}
