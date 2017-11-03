@@ -9,10 +9,10 @@ cv.pdf: export TEXINPUTS=lib:
 cv.pdf: export BSTINPUTS=lib:
 cv.pdf: cv.tex $(PAGES) $(FIGURES) $(LIBS)
 	echo $(TEXINPUTS) $(BSTINPUTS)
-	xelatex -shell-escape --no-pdf --interaction=nonstopmode cv.tex
+	pdflatex -shell-escape --no-pdf --interaction=nonstopmode cv.tex
 	biber cv || true
-	xelatex -shell-escape --no-pdf --interaction=nonstopmode cv.tex
-	xelatex -shell-escape --interaction=nonstopmode cv.tex
+	pdflatex -shell-escape --no-pdf --interaction=nonstopmode cv.tex
+	pdflatex -shell-escape --interaction=nonstopmode cv.tex
 
 clean:
 	rm -rf *.run.xml *.bcf *.aux *.blg *.out *.log *.bbl *.toc *.backup *.xdv _minted-*
