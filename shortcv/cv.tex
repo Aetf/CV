@@ -1,0 +1,140 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{cv,booktabs,fontawesome}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Change color to blue
+\def\headcolor{\color[rgb]{0,0,0.5}}
+
+% Space before section headings
+\titlespacing{\section}{0pt}{3ex}{1ex}
+
+% bib reference font
+\usepackage[sfdefault,lf,t]{carlito}
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
+\usepackage{inconsolata}
+
+\name{Peifeng Yu}
+\info{%
+    \faicon{map-marker} & 2543 Stone Rd, Ann Arbor, MI 48105, USA.\\
+    \faicon{home}       & unlimitedcodeworks.xyz \\
+    \faicon{github}     & Aetf \\
+    \faicon{phone}      & +1 734 239 2157 \\
+    \faicon{envelope}   & peifeng@umich.edu
+}
+
+\bibliography{cv}
+
+%\addtocategory{books}{MWH3,ITSM91,ITSM94,expsmooth08}
+\addtocategory{papers}{hotos17}
+\addtocategory{subpapers}{eurosys18}
+%\addtocategory{papers}{HDR96,HBG96,HF96,GHH97,HW97,LFSH97,GH98}
+
+\begin{document}
+\maketitle
+
+\section{Education and Qualifications}
+
+
+\begin{tabular}{llll}
+    Present        & PhD  & Computer Science and Engineering & University of Michigan \\
+    2017           & MS   & Computer Science and Engineering & University of Michigan \\
+    2015           & B.Eng. & Software Engineering & Xi'an Jiaotong University
+\end{tabular}
+
+\begin{publications}
+    %\printbib{phd}
+    %\printbib{books}
+    \printbib{papers}
+    \printbib{subpapers}
+    %\printbib{chapters}
+    %\printbib{conferences}
+    %\printbib{bookreviews}
+    %\printbib{editorials}
+\end{publications}
+
+\section{Awards and Scholarships}
+
+\begin{tabular}{lp{15cm}}
+    2014 & Google Excellent Scholarship (\$1500, only one in Xi'an Jiaotong University) \\
+    2014 & Meritorious Winner of Interdisciplinary Contest in Modeling \\
+    2013 & Silver Medal of the ACM-ICPC Asia China
+            \newline Shaanxi Provincial Programming Contest \\
+    2013 & Fuji Xerox (China) Scholarship (RMB5000, 4 of top 20\% student in the major) \\
+    2013 & Merit Student in Xi'an Jiaotong University \\
+    2012 & First prize for MCM/ICM of Xi'an Jiaotong University \\
+    2012 & Third prize for ACM Programming Contest of Xi'an Jiaotong University \\
+    2012 & Third prize for ``Tengfei Cup'' Undergraduate
+            \newline Curricular Academic Science and Technology Competition \\
+    2011 & Excellent Student Cadre in Xi'an Jiaotong University  \\
+    2011 & ``Lu Shidi'' Scolarship (RMB6000, 2 of top 10\% students in the major)
+\end{tabular}
+
+
+\section{Research Experience}
+\begin{itemize}
+    \item Salus: Fine-Grained GPU Sharing Between CNN Applications \hfill \textit{From Sep., 2016 to Present}
+    \begin{itemize}
+        \item Framework-independent, consolidated execution service that enforce fine-grained GPU sharing.
+        \item Take care of low-level memory management, GPU task scheduling.
+        \item Prelimilary result shows improvements of GPU memory utilization by 20$\times$ using TensorFlow.
+    \end{itemize}
+
+    \item Deep Tree: SQL Injection Detection by the Power of Deep Learning \hfill \textit{From Sep., 2016 to Mar., 2017}
+    \begin{itemize}
+        \item Tree-based CNN network for SQL statements classification.
+        \item Compiled new SQL statements dataset of 4161 samples.
+        \item Detect SQL injection attack with high accuracy (94.7\%).
+    \end{itemize}
+
+    \item System Design of Streaming Video Analysis Application in Storm \hfill \textit{From Apr., 2016 to July, 2016}
+    \begin{itemize}
+        \item Built Storm topology with several video analysis workload, includeing classification, 
+captioning and object tracking.
+        \item Analyzed the latency vs throughput on 3 servers with GPU, to understand the relationship 
+between parallelism hint and performance.
+        \item Summer research in Clarity Lab.
+    \end{itemize}
+
+    \item Neural Network Classifier with Generalized Correntropy Loss \hfill \textit{From Jan., 2015 to
+May, 2015}
+    \begin{itemize}
+        \item Bachelor's thesis.
+        \item Implemented a neural network classifier using generalized correntropy loss function.
+        \item Analyzed the classifier's behavior under varied order parameters in generalized correntropy loss
+function.
+    \end{itemize}
+\end{itemize}
+
+\section{Project Experience}
+
+\begin{itemize}
+    \item LLDB Support for KDevelop (Google Summer of Code) \hfill \textit{From May, 2016 to Aug., 2016}
+    \begin{itemize}
+        \item Extended KDevelop C/C++ debugger architecture to allow choosing between multiple debugger 
+backends.
+        \item Built the LLDB backend for KDevelop that enables it to use LLDB as a backend for C/C++ 
+debugging.
+\item Successful Google Summer of Code project. Link:
+\url{https://summerofcode.withgoogle.com/archive/2016/projects/6014826014834688/}
+        \item Keep contributing to the KDevelop after the GSoC period.
+    \end{itemize}
+
+    \item Software Low Power Mode Based on Protean Code \hfill \textit{From Sep., 2015 to Dec., 2015}
+    \begin{itemize}
+        \item A runtime power saving optimization platform based on Protean Code triggered by OS power events.
+        \item Implemented devectorization pass which disables SLP instructions when batteries are running out.
+        \item Course project for Advanced Compiler in University of Michigan, worked in a group of 4.
+    \end{itemize}
+
+    \item Pixel Cube Game for LeapMotion \hfill \textit{From Nov., 2013 to June, 2014}
+    \begin{itemize}
+        \item 3D pixel painting using hand gestures, powered by LeapMotion
+        \item Course project for Software Project Management in Xi'an Jiaotong University, worked in a group
+of 8.
+    \end{itemize}
+\end{itemize}
+
+%\newpage
+
+\end{document}
