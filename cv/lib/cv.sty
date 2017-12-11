@@ -57,8 +57,9 @@
 % Section headings
 \titlelabel{}
 \titlespacing{\section}{0pt}{2ex}{1ex}
-\titleformat*{\section}{\headcolor\large\sf\bfseries}
+\titleformat*{\section}{\headcolor\Large\sf\bfseries}
 \titlespacing{\subsection}{0pt}{1ex}{0.5ex}
+\titleformat*{\subsection}{\headcolor\sf\bfseries}
 
 % Miscellaneous dimensions
 \setlength{\parskip}{0ex}
@@ -72,7 +73,12 @@
 
 % Bibliography formatting
 
-\usepackage[sorting=ynt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,backend=biber]{biblatex}
+\usepackage[sorting=ynt, citestyle=authoryear, bibstyle=authoryear-comp,
+            defernumbers=true, maxnames=3,
+            giveninits=true, bibencoding=utf8,
+            uniquename=init, dashed=false,
+            doi=false, isbn=false, natbib=true,
+            backend=biber]{biblatex}
 
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat[article]{pages}{#1}
@@ -96,20 +102,22 @@
   \printtext{\bibstring{in}\intitlepunct}}}
 
 % Bibliography categories
-\def\makebibcategory#1#2{\DeclareBibliographyCategory{#1}\defbibheading{#1}{\section*{#2}}}
+\def\makebibcategory#1#2{\DeclareBibliographyCategory{#1}\defbibheading{#1}{\subsection*{#2}}}
 \makebibcategory{books}{Books}
 \makebibcategory{papers}{Research papers}
+\makebibcategory{workshop}{Workshop papers}
 \makebibcategory{chapters}{Book chapters}
 \makebibcategory{conferences}{Papers in refereed conference proceedings}
-\makebibcategory{techreports}{Unpublished working papers}
+\makebibcategory{techreport}{Unpublished working papers}
 \makebibcategory{bookreviews}{Book reviews}
 \makebibcategory{editorials}{Editorials}
 \makebibcategory{phd}{PhD thesis}
-\makebibcategory{subpapers}{Submitted papers}
+\makebibcategory{subpapers}{Under Submission}
 \makebibcategory{curpapers}{Current projects}
-\makebibcategory{software}{Software (R packages)}
+\makebibcategory{software}{Software}
 
-\setlength{\bibitemsep}{2.3pt}
+%\setlength{\bibitemsep}{2.3pt}
+\setlength{\bibitemsep}{1.8pt}
 \setlength{\bibhang}{.9cm}
 %\renewcommand{\bibfont}{\fontsize{12}{14}}
 
@@ -122,7 +130,7 @@
 {\endlist}
 {\bibitem}
 
-\newenvironment{publications}{\section{\LARGE Publications}\label{papersstart}\vspace*{0.2cm}
+\newenvironment{publications}{\section{Publications}\label{papersstart}\vspace*{0.2cm}
 \titlespacing{\section}{0pt}{1.5ex}{1ex}\itemsep=0.00cm
 }{\label{papersend}\addtocounter{sumpapers}{-1}\refstepcounter{sumpapers}\label{sumpapers}}
 
@@ -140,7 +148,7 @@
 
 \renewcommand{\labelitemi}{\ding{228}}
 
-\DeclareSortingScheme{ty}{
+\DeclareSortingTemplate{ty}{
   \sort{
     \field{title}
   }
