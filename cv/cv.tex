@@ -1,7 +1,18 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[letterpaper,11pt]{article}
 \usepackage{cv,booktabs,fontawesome}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+% Selectively show some content or not
+\usepackage{comment}
+%% non academia related thing goes into extra
+\newenvironment{extra}{}{}
+%% non academia related thing goes into extra
+\newenvironment{excurr}{}{}
+%% toggles (comment out all the following to create full version)
+%\excludecomment{extra}
+%\excludecomment{excurr}
 
 % Change color to blue
 \def\headcolor{\color[rgb]{0,0,0.5}}
@@ -17,8 +28,8 @@
 \name{Peifeng Yu}
 \info{%
     \faicon{map-marker} & 2543 Stone Rd, Ann Arbor, MI 48105, USA. \\
-    \faicon{home}       & unlimitedcodeworks.xyz \\
-    \faicon{github}     & Aetf \\
+    \faicon{home}       & \href{https://unlimitedcodeworks.xyz}{unlimitedcodeworks.xyz} \\
+    \faicon{github}     & \href{https://github.com/Aetf}{Aetf} \\
     \faicon{phone}      & +1 734 239 2157 \\
     \faicon{envelope}   & peifeng@umich.edu
 }
@@ -26,8 +37,9 @@
 \bibliography{cv}
 
 %\addtocategory{books}{MWH3,ITSM91,ITSM94,expsmooth08}
-\addtocategory{papers}{hotos17}
-\addtocategory{subpapers}{eurosys18}
+\addtocategory{workshop}{hotos17}
+\addtocategory{poster}{sysml18}
+\addtocategory{subpapers}{nsdi19}
 %\addtocategory{papers}{HDR96,HBG96,HF96,GHH97,HW97,LFSH97,GH98}
 
 \begin{document}
@@ -44,7 +56,9 @@
 \begin{publications}
     %\printbib{phd}
     %\printbib{books}
-    \printbib{papers}
+    \printbib{workshop}
+    \printbib{poster}
+    %\printbib{papers}
     \printbib{subpapers}
     %\printbib{conferences}
     %\printbib{bookreviews}
@@ -72,11 +86,13 @@
 
 \section{Research Experience}
 \begin{itemize}
-    \item Salus: Fine-Grained GPU Sharing Between CNN Applications \hfill \textit{From Sep., 2016 to Present}
+    \item Salus: Fine-Grained GPU Sharing for Deep Learning Applications \hfill \textit{From Sep., 2016 to Present}
     \begin{itemize}
-        \item Framework-independent, consolidated execution service that enforce fine-grained GPU sharing.
-        \item Take care of low-level memory management, GPU task scheduling.
-        \item Prelimilary result shows improvements of GPU memory utilization by 20$\times$ using TensorFlow.
+        \item Provides missing GPU sharing primitives: fast switching and memory sharing.
+        \item Enforces fine-grained GPU sharing via a framework-independent, consolidated execution service.
+        \item Improves the average completion time of DL training jobs by $3.19\times$
+        \item Improves GPU utilization for hyper-parameter tuning by $2.38\times$, and for DL inference
+        applications by $42\times$ over not sharing the GPU.
     \end{itemize}
 
     \item Deep Tree: SQL Injection Detection by the Power of Deep Learning \hfill \textit{From Sep., 2016 to Mar., 2017}
@@ -88,13 +104,14 @@
 
     \item System Design of Streaming Video Analysis Application in Storm \hfill \textit{From Apr., 2016 to July, 2016}
     \begin{itemize}
-        \item Built Storm topology with several video analysis workload, includeing classification, 
+        \item Built Storm topology with several video analysis workload, including classification, 
 captioning and object tracking.
         \item Analyzed the latency vs throughput on 3 servers with GPU, to understand the relationship 
 between parallelism hint and performance.
         \item Summer research in Clarity Lab.
     \end{itemize}
 
+\begin{extra}
     \item Evaluation of Graphical Keyboard User Interface \hfill \textit{From Sep., 2015 to Dec., 2015}
     \begin{itemize}
         \item Evaluated of two GKUI applications completing different tasks. Operating systems were also
@@ -102,6 +119,7 @@ included as a variable in the experiment.
         \item The result indicates significant improvements using GKUI in both tasks.
         \item Course research project for Introduction to HCI Research at University of Michigan.
     \end{itemize}
+\end{extra}
 
     \item Neural Network Classifier with Generalized Correntropy Loss \hfill \textit{From Jan., 2015 to
 May, 2015}
@@ -112,15 +130,18 @@ May, 2015}
 function.
     \end{itemize}
 
-    \item One year research program in SEAndroid in NSKeyLab \hfill \textit{From Nov., 2013 to Nov., 2014}
+\begin{extra}
+    \item Application data separation using SEAndroid in NSKeyLab \hfill \textit{From Nov., 2013 to Nov., 2014}
     \begin{itemize}
         \item Focused on the implementation of multi-domain data separation.
         \item Ported the SELinux policy compile tool chain to Android.
         \item Implemented domain management and storage system service in both native user space and Android
 framework.
     \end{itemize}
+\end{extra}
 
-    \item Summer Practice in NSKeyLab (the Ministry of Education Key Lab for Intelligent Networks and Network
+\begin{extra}
+    \item Summer Practice in NSKeyLab (the Ministry of Education Key Lab for Intelligent Networks and \\ Network
     Security on Network Traffic Capture and Analysis) \hfill \textit{From July, 2012 to Sep, 2013}
     \begin{itemize}
         \item Mainly engaged in the application development for local host network traffic capture and
@@ -128,7 +149,9 @@ analysis, as well as the network traffic reconstruction algorithm.
         \item Mastered related techniques such as WinPcap, WPF, TCP stream reassembly and HTTP reconstruction.
         \item Analyzed 5 high speed download traffic samples and tens of HTTP traffic samples.
     \end{itemize}
+\end{extra}
 
+\begin{extra}
     \item Graphical Data Quality Management System based on IP-MAP \hfill \textit{From Nov., 2012 to May,
 2013}
     \begin{itemize}
@@ -138,6 +161,8 @@ analysis, as well as the network traffic reconstruction algorithm.
 curricular academic science and technology competition.
         \item Participated as team leader and programmer.
     \end{itemize}
+\end{extra}
+
 \end{itemize}
 
 
@@ -155,19 +180,23 @@ debugging.
         \item Keep contributing to the KDevelop after the GSoC period.
     \end{itemize}
 
+\begin{extra}
     \item Contribution to open source Mozilla project \hfill \textit{From June, 2014 to 2015}
     \begin{itemize}
         \item Fixed several bugs (features) in JavaScript JIT Engine.
         \item Implemented recover instruction for multiple MIR instructions.
         \item Got Mozillian membership.
     \end{itemize}
+\end{extra}
 
+\begin{extra}
     \item Activities on GitHub \hfill \textit{From 2012 to present}
     \begin{itemize}
         \item Side projects including a bencode library, network traffic capture and analyze, torrent list
 migration between uTorrent and qBittorrent.
         \item Contributed to several projects: Mono, kmscon, CuteMarkEd, hid-apple-patched, DynamicTextures.
     \end{itemize}
+\end{extra}
 
     \item Software Low Power Mode Based on Protean Code \hfill \textit{From Sep., 2015 to Dec., 2015}
     \begin{itemize}
@@ -183,14 +212,18 @@ migration between uTorrent and qBittorrent.
 of 8.
     \end{itemize}
 
+\begin{extra}
     \item Mouse Control with Kinect \hfill \textit{From May, 2012 to July, 2012}
     \begin{itemize}
         \item Developed algorithm to smooth mouse movement by mapping hand movement into a cylinder surface.
         \item The algorithm can adapt to different body parameters.
     \end{itemize}
+\end{extra}
+
 \end{itemize}
 
 
+\begin{excurr}
 \section{Extracurricular Experience}
 
 \begin{itemize}
@@ -211,5 +244,6 @@ Jun. 2012}
     \end{itemize}
 
 \end{itemize}
+\end{excurr}
 
 \end{document}
