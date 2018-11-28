@@ -7,7 +7,7 @@ pdf: cv.pdf
 
 cv.pdf: export TEXINPUTS=lib:
 cv.pdf: export BSTINPUTS=lib:
-cv.pdf: cv.tex $(PAGES) $(FIGURES) $(LIBS)
+cv.pdf: cv.tex $(PAGES) $(FIGURES) $(LIBS) cv.bib
 	echo $(TEXINPUTS) $(BSTINPUTS)
 	pdflatex -shell-escape --no-pdf --interaction=nonstopmode cv.tex
 	biber cv || true
