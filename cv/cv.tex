@@ -38,8 +38,9 @@
 
 %\addtocategory{books}{MWH3,ITSM91,ITSM94,expsmooth08}
 \addtocategory{workshop}{hotos17}
+\addtocategory{poster}{yu18michai}
 \addtocategory{poster}{sysml18}
-\addtocategory{subpapers}{nsdi19}
+\addtocategory{subpapers}{sysml20}
 %\addtocategory{papers}{HDR96,HBG96,HF96,GHH97,HW97,LFSH97,GH98}
 
 \begin{document}
@@ -82,31 +83,42 @@
     2011 & ``Lu Shidi'' Scolarship (RMB6000, 2 of top 10\% students in the major)
 \end{tabular}
 
+\section{Work Experience}
+\begin{itemize}
+    \item Internship at Facebook \hfill \textit{From May., 2019 to Aug., 2019}
+    \begin{itemize}
+        \item Build fleet-wide GPU utilization regression detection and attribution dashboard
+        \item Discover and fix data consistency issue in GPU performance data.
+        \item Identify optimization opportunity and give improvement suggestion via automated 
+emails.
+    \end{itemize}
 
+\end{itemize}
 
 \section{Research Experience}
 \begin{itemize}
     \item Salus: Fine-Grained GPU Sharing for Deep Learning Applications \hfill \textit{From Sep., 2016 to Present}
     \begin{itemize}
-        \item Provides missing GPU sharing primitives: fast switching and memory sharing.
-        \item Enforces fine-grained GPU sharing via a framework-independent, consolidated execution service.
-        \item Improves the average completion time of DL training jobs by $3.19\times$
-        \item Improves GPU utilization for hyper-parameter tuning by $2.38\times$, and for DL inference
-        applications by $42\times$ over not sharing the GPU.
+        \item Fine-grained GPU sharing by providing missing primitives: fast 
+switching and memory sharing.
+        \item Improves GPU utilization for hyper-parameter tuning by $2.38\times$, and for DL 
+inference applications by $42\times$ over not sharing the GPU.
+        \item Code open sourced at \url{https://github.com/SymbioticLab/Salus}
     \end{itemize}
 
     \item Deep Tree: SQL Injection Detection by the Power of Deep Learning \hfill \textit{From Sep., 2016 to Mar., 2017}
     \begin{itemize}
-        \item Tree-based CNN network for SQL statements classification.
+        \item Tree-based CNN for SQL statements classification with 94.7\% accuracy for injection 
+detection.
         \item Compiled new SQL statements dataset of 4161 samples.
-        \item Detect SQL injection attack with high accuracy (94.7\%).
+        \item Code open sourced at \url{https://github.com/Aetf/tensorflow-tbcnn}
     \end{itemize}
 
     \item System Design of Streaming Video Analysis Application in Storm \hfill \textit{From Apr., 2016 to July, 2016}
     \begin{itemize}
-        \item Built Storm topology with several video analysis workload, including classification, 
-captioning and object tracking.
-        \item Analyzed the latency vs throughput on 3 servers with GPU, to understand the relationship 
+        \item Storm topology with several video classification, captioning and object tracking 
+workloads.
+        \item Analysis of latency and throughput on 3 GPU servers, to understand the relationship 
 between parallelism hint and performance.
         \item Summer research in Clarity Lab.
     \end{itemize}
@@ -171,11 +183,9 @@ curricular academic science and technology competition.
 \begin{itemize}
     \item LLDB Support for KDevelop (Google Summer of Code) \hfill \textit{From May, 2016 to Aug., 2016}
     \begin{itemize}
-        \item Extended KDevelop C/C++ debugger architecture to allow choosing between multiple debugger 
-backends.
-        \item Built the LLDB backend for KDevelop that enables it to use LLDB as a backend for C/C++ 
-debugging.
-\item Successful Google Summer of Code project. Link:
+        \item Extended KDevelop C/C++ debugger architecture to allow multiple debugger backends.
+        \item Added LLDB backend for KDevelop, enabling C/C++ debugging through LLDB.
+        \item Successful Google Summer of Code project. Link:
 \url{https://summerofcode.withgoogle.com/archive/2016/projects/6014826014834688/}
         \item Keep contributing to the KDevelop after the GSoC period.
     \end{itemize}
@@ -215,7 +225,8 @@ of 8.
 \begin{extra}
     \item Mouse Control with Kinect \hfill \textit{From May, 2012 to July, 2012}
     \begin{itemize}
-        \item Developed algorithm to smooth mouse movement by mapping hand movement into a cylinder surface.
+        \item Developed algorithm to smooth mouse movement by projecting hand movement onto a 
+cylindrical surface.
         \item The algorithm can adapt to different body parameters.
     \end{itemize}
 \end{extra}
