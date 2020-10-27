@@ -1,0 +1,25 @@
+{
+    "editor.rulers": [
+        80
+    ],
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-r",
+                ".latexmkrc",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "-cd",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ],
+    "vim.textwidth": 80
+}
