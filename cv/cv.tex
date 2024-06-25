@@ -35,42 +35,30 @@
 
 \bibliography{cv}
 
-%\addtocategory{books}{MWH3,ITSM91,ITSM94,expsmooth08}
-\addtocategory{workshop}{hotos17}
-\addtocategory{poster}{yu18michai}
-\addtocategory{poster}{sysml18}
-\addtocategory{papers}{fluid:mlsys21}
-\addtocategory{papers}{salus:mlsys20}
-\addtocategory{papers}{fb:ieeemicro}
+\addtocategory{workshop}{no:hotos17}
+
+\addtocategory{poster}{salus:michai18,salus:sysml18}
+
+\addtocategory{papers}{fluid:mlsys21,salus:mlsys20,fb:ieeemicro,orloj:arxiv22}
+
+\addtocategory{phd}{peifeng:dissertation}
 
 \begin{document}
 \maketitle
 
-\section{Education and Qualifications}
-
-\begin{tabular}{llll}
-    Present        & PhD  & Computer Science and Engineering & University of Michigan \\
-    2017           & MS   & Computer Science and Engineering & University of Michigan \\
-    2015           & B.Eng. & Software Engineering & Xi'an Jiaotong University
-\end{tabular}
-
-\begin{publications}
-    %\printbib{phd}
-    %\printbib{books}
-    \printbib{papers}
-    \printbib{workshop}
-    %\printbib{poster}
-    \printbib{subpapers}
-    %\printbib{conferences}
-    %\printbib{bookreviews}
-    %\printbib{editorials}
-\end{publications}
-
 \section{Work Experience}
+\begin{itemize}
+    \item Software Engineer at Google
+        \hfill \textit{From Jun., 2022 to Present}
+    \begin{itemize}
+        \item Tech Lead in accelerator support in Borg.
+        \item Design and implement generic accelerator management infrastructure in Borglet.
+    \end{itemize}
+\end{itemize}
 \begin{itemize}
     \item Internship at Facebook \hfill \textit{From May., 2019 to Aug., 2019}
     \begin{itemize}
-        \item Build fleet-wide GPU utilization regression detection and attribution dashboard
+        \item Build fleet-wide GPU utilization regression detection and attribution dashboard.
         \item Discover and fix data consistency issues in GPU performance data.
         \item Identify optimization opportunities and give improvement suggestions via automated 
 emails.
@@ -78,7 +66,37 @@ emails.
 
 \end{itemize}
 
+\section{Education and Qualifications}
+
+\begin{tabular}{llll}
+    2022 & PhD  & Computer Science and Engineering & University of Michigan \\
+    2017 & MS   & Computer Science and Engineering & University of Michigan \\
+    2015 & B.Eng. & Software Engineering & Xi'an Jiaotong University
+\end{tabular}
+
+\begin{publications}
+    \printbib{phd}
+    %\printbib{books}
+    \printbib{papers}
+    \printbib{workshop}
+    \printbib{poster}
+    %\printbib{subpapers}
+    %\printbib{conferences}
+    %\printbib{bookreviews}
+    %\printbib{editorials}
+\end{publications}
+
 \section{Research Experience}
+\begin{itemize}
+    \item Orloj: Predictably Serving Unpredictable DNNs
+        \hfill \textit{From Feb., 2021 to Apr., 2022}
+    \begin{itemize}
+        \item A dynamic DNN serving system that uses emprical distributions to
+        estimate request execution time and schedules them with efficient batching
+        \item Outperforms state-of-the-art serving solutions for high variance
+        dynamic DNN workloads by 51\%-80\% in finish rate under tight SLO constraints.
+    \end{itemize}
+\end{itemize}
 \begin{itemize}
     \item Fluid: Resource-aware Hyperparameter Tuning Engine
     Engine \hfill \textit{From May, 2020 to Jan., 2021}

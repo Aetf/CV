@@ -1,45 +1,265 @@
-@article{fb:ieeemicro,
-  author  = {Wesolowski, Lukasz and Acun, Bilge and Andrei, Valentin and Aziz, Adnan and Dankel, Gisle and Gregg, Christopher and Meng, Xiaoqiao and Meurillon, Cyril and Sheahan, Denis and Tian, Lei and Yang, Janet and Yu, Peifeng and Hazelwood, Kim},
-  doi     = {10.1109/MM.2021.3097287},
-  journal = {IEEE Micro},
-  number  = {5},
-  pages   = {101-112},
-  title   = {Datacenter-Scale Analysis and Optimization of GPU Machine Learning Workloads},
-  volume  = {41},
-  year    = {2021},
+@inproceedings{no:hotos17,
+	title = {No! {Not} {Another} {Deep} {Learning} {Framework}},
+	author = {Nguyen, Linh and Yu, Peifeng and Chowdhury, Mosharaf},
+	booktitle = {Proceedings of the 16th {Workshop} on {Hot} {Topics} in {Operating} {Systems}},
+    booktitleaddon = {HotOS},
+	year = {2017},
+	pages = {88--93},
+
+    publist_confkey = {HotOS'17},
+    publist_link = {paper || no-hotos17.pdf},
+    publist_link = {talk || no-hotos17.key},
+    publist_abstract = {
+        In recent years, deep learning has pervaded many areas of computing due to the confluence of an explosive
+        growth of large-scale computing capabilities, availability of datasets, and advances in learning techniques.
+        While this rapid growth has resulted in diverse deep learning frameworks, it has also led to inefficiencies
+        for both the users and developers of these frameworks. Specifically, adopting useful techniques across
+        frameworks – both to perform learning tasks and to optimize performance – involves significant repetitions and
+        reinventions.
+
+        In this paper, we observe that despite their diverse origins, many of these frameworks share architectural
+        similarities. We argue that by introducing a common representation of learning tasks and a hardware
+        abstraction model to capture compute heterogeneity, we might be able to relieve machine learning researchers
+        from dealing with low-level systems issues and systems researchers from being tied to any specific framework.
+        We expect this decoupling to accelerate progress in both domains.
+    },
 }
 
-@inproceedings{fluid:mlsys21,
-  author    = {Yu, Peifeng and Liu, Jiachen and Chowdhury, Mosharaf},
-  booktitle = {Proceedings of the 4th Conference on Machine Learning and Systems (MLSys)},
-  title     = {{Fluid: Resource-aware Hyperparameter Tuning Engine}},
-  year      = {2021},
+@misc{salus:sysml18,
+    title={{Salus: Fine-Grained GPU Sharing Among CNN Applications}},
+    author={Yu, Peifeng and Chowdhury, Mosharaf},
+    year = {2018},
+    howpublished = {{Poster presented at: SysML \url{https://www.sysml.cc/doc/83.pdf}}},
+
+    publist_confkey = {SysML'18},
+    publist_link = {poster || salus-sysml18-poster.pdf},
+    publist_link = {paper || salus-sysml18.pdf},
+    publist_abstract = {
+        In this paper, we present Salus, a framework-independent runtime to enable fine-grained sharing of a single
+        GPU among multiple memory-intensive CNN applications. Salus implements an efficient, consolidated execution
+        service that exposes the GPU to different CNN applications and enforces fine-grained sharing by performing
+        low-level memory management, managing GPU task scheduling, and addressing associated issues such as deadlock
+        prevention and GPU-to-host memory paging. Not only can Salus enable multiple CNN jobs to share a single GPU,
+        it can enforce sharing policies to provide fairness and prioritization as well. Our integration of Salus with
+        TensorFlow shows that it can improve GPU utilization by up to 20x.
+    },
 }
 
-@inproceedings{hotos17,
-  author    = {Nguyen, Linh and Yu, Peifeng and Chowdhury, Mosharaf},
-  booktitle = {Proceedings of the 16th {Workshop} on {Hot} {Topics} in {Operating} {Systems} (HotOS)},
-  title     = {No! {Not} {Another} {Deep} {Learning} {Framework}},
-  year      = {2017},
+@misc{salus:michai18,
+    title={{Salus: Fine-Grained GPU Sharing Primitives for Deep Learning Applications}},
+    author={Yu, Peifeng and Chowdhury, Mosharaf},
+    year = {2018},
+    howpublished = {{Poster presented at: Michigan AI}},
+
+    publist_confkey = {MichiganAI'18},
+    publist_link = {poster || salus-michai18-poster.pdf},
+    publist_abstract = {
+        GPU computing is becoming increasingly more popular with the proliferation of deep learning (DL) applications.
+        However, unlike traditional resources such as CPU or the network, modern GPUs do not natively support
+        fine-grained sharing primitives. Consequently, implementing common policies such as time sharing and
+        preemption are expensive. Worse, when a DL application cannot completely use a GPU's resources, the GPU cannot
+        be efficiently shared between multiple applications, leading to GPU underutilization.
+
+        We present Salus to enable two GPU sharing primitives: fast job switching and memory sharing, in order to
+        achieve fine-grained GPU sharing among multiple DL applications. Salus implements an efficient, consolidated
+        execution service that exposes the GPU to different DL applications, and enforces fine-grained sharing by
+        performing iteration scheduling and addressing associated memory management issues. We show that these
+        primitives can then be used to implement flexible sharing policies such as fairness, prioritization, and
+        packing for various use cases. Our integration of Salus with TensorFlow and evaluation on popular DL jobs show
+        that Salus can improve the average completion time of DL training jobs by 3.19×, GPU utilization for
+        hyper-parameter tuning by 2.38×, and GPU utilization of DL inference applications by 42× over not sharing the
+        GPU and 7× over NVIDIA MPS with small overhead.
+    },
+}
+
+@online{salus:arxiv19,
+    title         = {Salus: Fine-Grained {GPU} Sharing Primitives for Deep Learning Applications},
+    author        = {Peifeng Yu and Mosharaf Chowdhury},
+    year          = {2019},
+    month         = {2},
+    eprint        = {1902.04610},
+    eprintprefix  = {arXiv},
+    eprintclass   = {cs.DC},
+
+    publist_confkey = {arXiv:1902.04610},
+    publist_link = {paper || https://arxiv.org/abs/1902.04610},
+    publist_abstract = {
+        GPU computing is becoming increasingly more popular with the proliferation of deep learning (DL) applications.
+        However, unlike traditional resources such as CPU or the network, modern GPUs do not natively support fine-grained sharing primitives.
+        Consequently, implementing common policies such as time sharing and preemption are expensive.
+        Worse, when a DL application cannot completely use a GPU's resources, the GPU cannot be efficiently shared between multiple applications, leading to GPU underutilization.
+
+        We present Salus to enable two GPU sharing primitives: fast job switching and memory sharing, in order to achieve fine-grained GPU sharing among multiple DL applications.
+        Salus implements an efficient, consolidated execution service that exposes the GPU to different DL applications, and enforces fine-grained sharing by performing iteration scheduling and addressing associated memory management issues.
+        We show that these primitives can then be used to implement flexible sharing policies such as fairness, prioritization, and packing for various use cases.
+        Our integration of Salus with TensorFlow and evaluation on popular DL jobs show that Salus can improve the average completion time of DL training jobs by $3.19\times$,
+        GPU utilization for hyper-parameter tuning by $2.38\times$,
+        and GPU utilization of DL inference applications by $42\times$ over not sharing the GPU and $7\times$ over NVIDIA MPS with small overhead.
+    }
 }
 
 @inproceedings{salus:mlsys20,
-  author    = {Yu, Peifeng and Chowdhury, Mosharaf},
-  booktitle = {Proceedings of the 3rd Conference on Machine Learning and Systems ({MLSys})},
-  title     = {Salus: {Fine-Grained GPU Sharing Primitives for Deep Learning Applications}},
-  year      = {2020},
+    author    = {Peifeng Yu and Mosharaf Chowdhury},
+    booktitle = {Proceedings of Machine Learning and Systems 2},
+    booktitleaddon = {MLSys},
+    title     = {Salus: Fine-Grained {GPU} Sharing Primitives for Deep Learning Applications},
+    year      = {2020},
+
+    publist_confkey = {MLSys'20},
+    publist_link = {paper || salus-mlsys20.pdf},
+    publist_link = {slides || salus-mlsys20-talk.pptm},
+    publist_link = {poster || salus-mlsys20-poster.pdf},
+    publist_link = {code || https://github.com/SymbioticLab/Salus},
+    publist_badge = {Artifacts Available},
+    publist_badge = {Artifacts Evaluated Functional},
+    publist_badge = {Results Replicated},
+    publist_topic = {Systems for AI},
+    publist_abstract = {
+        Unlike traditional resources such as CPU or the network, modern GPUs do not natively support
+        fine-grained sharing primitives.
+        Consequently, implementing common policies such as time sharing and preemption are expensive. Worse,
+        when a deep learning (DL) application cannot completely use a GPU's resources, the GPU cannot be efficiently shared
+        between multiple applications, leading to GPU underutilization.
+
+        We present Salus to enable two GPU sharing primitives: __fast job
+        switching__ and __memory sharing__, to achieve fine-grained GPU sharing
+        among multiple DL applications. Salus is an efficient, consolidated
+        execution service that exposes the GPU to different DL applications, and it
+        enforces fine-grained sharing by performing iteration scheduling and
+        addressing associated memory management issues. We show that these primitives
+        can then be used to implement flexible sharing policies. Our integration of
+        Salus with TensorFlow and evaluation on popular DL jobs shows that Salus
+        can improve the average completion time of DL training jobs by $3.19\times$, GPU utilization for
+        hyper-parameter tuning by $2.38\times$, and GPU utilization of DL inference applications by $42\times$ over not sharing
+        the GPU and $6\times$ over NVIDIA MPS with small overhead.
+    },
 }
 
-@misc{sysml18,
-  author       = {Yu, Peifeng and Chowdhury, Mosharaf},
-  howpublished = {{Poster presented at: SysML \url{https://www.sysml.cc/doc/83.pdf}}},
-  title        = {{Salus: Fine-Grained GPU Sharing Among CNN Applications}},
-  year         = {2018},
+@inproceedings{fluid:mlsys21,
+    title = {{Fluid: Resource-aware Hyperparameter Tuning Engine}},
+    author = {Yu, Peifeng and Liu, Jiachen and Chowdhury, Mosharaf},
+    booktitle = {Proceedings of Machine Learning and Systems 3},
+    booktitleaddon = {MLSys},
+    year = {2021},
+
+    publist_confkey = {MLSys'21},
+    publist_link = {paper || fluid-mlsys21.pdf},
+    publist_link = {slides || fluid-mlsys21.pptx},
+    publist_link = {poster || fluid-mlsys21-poster.pdf},
+    publist_link = {code || https://github.com/SymbioticLab/fluid},
+    publist_link = {video (oral) || https://www.youtube.com/watch?v=LZQE90whvfY},
+    publist_link = {video (poster) || https://www.youtube.com/watch?v=yaBxEUxRXZI},
+    publist_topic = {Systems for AI},
+    publist_abstract = {
+        Current hyperparameter tuning solutions lack complementary execution engines to efficiently leverage distributed
+        computation, thus ignoring the possibility of intra- and inter-GPU sharing, which exhibits poor resource usage.
+        In this paper, we present Fluid, a generalized hyperparameter tuning execution engine, that coordinates between
+        hyperparameter tuning jobs and cluster resources. Fluid schedules evaluation trials in such jobs using a waterfilling
+        approach to make the best use of resources both at intra- and inter-GPU granularities to speed up the tuning
+        process. By abstracting a hyperparameter tuning job as a sequence of TrialGroup, Fluid can boost the performance
+        of diverse hyperparameter tuning solutions. Our experiments show that Fluid can speed up synchronous BOHB by
+        100\%, and BOHB and ASHA by 30\% while having similar final accuracy.
+    },
 }
 
-@misc{yu18michai,
-  author       = {Yu, Peifeng and Chowdhury, Mosharaf},
-  howpublished = {{Poster presented at: Michigan AI}},
-  title        = {{Salus: Fine-Grained GPU Sharing Primitives for Deep Learning Applications}},
-  year         = {2018},
+@article{fb:ieeemicro,
+    author  = {Wesolowski, Lukasz and Acun, Bilge and Andrei, Valentin and Aziz, Adnan and Dankel, Gisle and Gregg, Christopher and Meng, Xiaoqiao and Meurillon, Cyril and Sheahan, Denis and Tian, Lei and Yang, Janet and Yu, Peifeng and Hazelwood, Kim},
+    doi     = {10.1109/MM.2021.3097287},
+    journal = {IEEE Micro},
+    number  = {5},
+    pages   = {101-112},
+    title   = {Datacenter-Scale Analysis and Optimization of GPU Machine Learning Workloads},
+    volume  = {41},
+    year    = {2021},
+
+    publist_confkey = {IEEE Micro 41(5)},
+    publist_link = {paper || fb-ieeemicro.pdf},
+    publist_abstract = {
+        In this article, we present a system to collectively optimize efficiency in a very large
+        scale deployment of GPU servers for machine learning workloads at Facebook. Our
+        system 1) measures and stores system-wide efficiency metrics for every executed
+        workflow; 2) aggregates data from across the execution stack to identify
+        optimization opportunities that maximize fleet-wide efficiency improvements; 3)
+        provides periodic and on-demand whole-system profiling for workflows; and 4)
+        automatically analyzes traces for common antipatterns. We present each
+        component of the stack and show case studies demonstrating the use of the tools
+        to significantly improve performance. To our knowledge, our system is the most
+        complete and effective solution for identifying and addressing efficiency problems
+        in datacenter-scale GPU deployments.
+    }
 }
+
+@online{orloj:arxiv22,
+  author        = {Peifeng Yu and Yuqing Qiu and Xin Jin and Mosharaf Chowdhury},
+  journal       = {CoRR},
+  title         = {{Orloj}: Predictably Serving Unpredictable {DNN}s},
+  year          = {2022},
+  month         = {8},
+  volume        = {abs/2209.00159},
+  archiveprefix = {arXiv},
+  bibsource     = {dblp computer science bibliography, https://dblp.org},
+  biburl        = {https://dblp.org/rec/journals/corr/abs-2209-00159.bib},
+  eprint        = {2209.00159},
+  url           = {https://arxiv.org/abs/2209.00159},
+
+  publist_confkey = {arXiv:2209.00159},
+  publist_link = {paper || https://arxiv.org/abs/2209.00159},
+  publist_topic = {Systems + AI},
+  publist_abstract = {
+    Existing DNN serving solutions can provide tight latency SLOs while maintaining high throughput via careful
+  scheduling of incoming requests, whose execution times are assumed to be highly predictable and data-independent.
+  However, inference requests to emerging dynamic DNNs -- e.g., popular natural language processing (NLP) models and
+  computer vision (CV) models that skip layers -- are data-dependent. They exhibit poor performance when served using
+  existing solutions because they experience large variance in request execution times depending on the input -- the
+  longest request in a batch inflates the execution times of the smaller ones, causing SLO misses in the absence of
+  careful batching.
+
+    In this paper, we present Orloj, a dynamic DNN serving system, that captures this variance in dynamic DNNs using
+  empirical distributions of expected request execution times, and then efficiently batches and schedules them without
+  knowing a request's precise execution time. Orloj significantly outperforms state-of-the-art serving solutions for
+  high variance dynamic DNN workloads by 51--80% in finish rate under tight SLO constraints, and over 100% under more
+  relaxed SLO settings. For well-studied static DNN workloads, Orloj keeps comparable performance with the
+  state-of-the-art.
+  }
+}
+
+@phdthesis{peifeng:dissertation,
+    title                    = {Application-Aware Scheduling in Deep Learning Software Stacks},
+    author                   = {Peifeng Yu},
+    institution              = {University of Michigan},
+    year                     = {2022},
+    month                    = {8},
+
+    publist_confkey          = {deepblue:2027.42/174199},
+    publist_link             = {paper || peifeng-dissertation.pdf},
+    publist_link             = {slides || peifeng-dissertation.pptx},
+    publist_abstract         = {
+        Deep Learning (DL) has pervaded many areas of computing due to the confluence of the explosive growth of large-scale computing capabilities, availability of datasets, and advances in learning techniques.
+        However, the infrastructure that supports DL is still in its early stage, bearing mismatches among the hardware, the software stack, and DL applications.
+        On the one hand, despite the emergence of new unique hardware and new use cases, the software stack that abstracts and schedules these hardware resources remains largely unchanged.
+        On the other hand, user-defined performance metrics common in DL applications urge better schedulers tailored to the application's specific needs.
+        Motivated by the mismatch, this dissertation revisits the system design across the stack, with a focus on the synergy between schedulers and application/system-specific information.
+
+        At the bottom level, the ever-growing adoption of specialized hardware like GPUs poses challenges to efficient usage.
+        Due to the lack of operating system arbitration, applications usually assume exclusive access, making the otherwise underutilized resources unusable for other jobs on the same host.
+        We therefore design Salus to realize proper efficient GPU sharing.
+        It leverages DL applications' specific usage patterns to schedule iterations and manage memory allocations, providing two missing primitives: fast job switching and memory sharing.
+
+        However, even with an efficient execution platform, it is still not trivial to harvest the hardware's full potential for higher-level applications. We investigate two such cases sitting on opposite sides of a model's lifecycle: hyperparameter tuning and inference serving.
+
+        Hyperparameter tuning -- which constitutes a great portion of DL cluster usage given the proliferation of distributed resources in clusters -- generates many small interdependent training trials.
+        Existing tuning algorithms are oblivious of advanced execution strategies like intra-GPU sharing and inter-GPU execution, often causing poor resource utilization.
+        Hence, we propose Fluid as a generalized hyperparameter tuning execution engine, that coordinates between tuning jobs and cluster resources.
+        Fluid schedules training trials in such jobs using a water-filling approach to make the best use of resources at both intra- and inter-GPU granularity to speed up hyperparameter tuning.
+
+        Moving on, inference serving also requires careful scheduling to achieve tight latency guarantees and maintain high utilization.
+        Existing serving solutions assume inference execution times to be data-independent and thus highly predictable.
+        However, with the rise of dynamic neural networks, data-dependent inferences see higher variance in execution times and become less predictable by a single, point estimation of the true running times.
+        With Orloj, we show that treating and modeling inference execution times as probability distributions bring large gains for scheduling inference requests in the presence of SLO constraints.
+
+        In this dissertation, we consider combining application/system-specific information with scheduling design as a means of efficiently supporting new hardware and new DL application use cases.
+        Nevertheless, the pursuit of higher efficiency never ends.
+        This dissertation tries to lay down the necessary mechanisms with the hope that our crude work may be a basis for further research to better scheduling algorithms and more efficient systems in the DL infrastructure.
+    }
+}
+

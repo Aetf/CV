@@ -21,5 +21,6 @@
             "env": {}
         }
     ],
-    "vim.textwidth": 80
+    "vim.textwidth": 80,
+    "explorer.excludeGitIgnore": true,
 }
