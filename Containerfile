@@ -1,12 +1,11 @@
 FROM ubuntu:24.04
 
-RUN apt-get update && apt-get install -y \
+RUN sed -i 's|http://archive.ubuntu.com/ubuntu/|http://mirrors.kernel.org/ubuntu/|g' /etc/apt/sources.list.d/ubuntu.sources && \
+    apt-get update && apt-get install -y \
     curl \
     tar \
     ca-certificates \
     fontconfig \
-    fonts-noto \
-    make \
     libgraphite2-3 \
     && rm -rf /var/lib/apt/lists/*
 
