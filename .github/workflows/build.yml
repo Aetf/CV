@@ -1,0 +1,44 @@
+name: Build and Publish CV
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Tectonic
+      uses: wtfjoke/setup-tectonic@v4
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Install Biber and Biblatex
+      run: sudo apt-get update && sudo apt-get install -y biber texlive-bibtex-extra
+
+    - name: Build CV
+      run: |
+        cd cv
+        tectonic -Z search-path=/usr/share/texlive/texmf-dist/tex/latex/biblatex -Z search-path=lib cv.tex
+
+    - name: Build Resume
+      run: |
+        cd resume
+        tectonic -Z search-path=lib resume.tex
+
+    - name: Upload CV Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: cv-pdf
+        path: cv/cv.pdf
+
+    - name: Upload Resume Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: resume-pdf
+        path: resume/resume.pdf
