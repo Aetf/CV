@@ -56,18 +56,23 @@
 \begin{itemize}
     \item Software Engineer at Google
         \hfill \textit{From Jun., 2022 to Present}
+    \newline \hfill \textit{Tech Lead since 2025}
     \begin{itemize}
-        \item Tech Lead in accelerator support in Borg.
-        \item Design and implement generic accelerator management infrastructure in Borglet.
+        \item \textbf{Hardware Management Framework:} Led a team of 5 to architect a unified, composable hardware management framework for a large-scale cluster manager, reducing engineering integration overhead for next-generation ML accelerators by an estimated 50\%, by decoupling monolithic legacy code into modular, configuration-driven components.
+        \item \textbf{Hardware Platform Onboarding:} Designed and implemented node-level cluster manager support for next-generation ML accelerators (including Trillium and Ironwood), enabling seamless production integration and rapid qualification for the latest hardware generations.
+        \item \textbf{ML Workload Virtualization:} Spearheaded the fleet-wide migration of massive-scale ML training workloads to secure, hardware-accelerated virtual machines, improving multi-tenant isolation while maintaining strict performance SLAs, by optimizing node-level memory allocation and secure device passthrough policies.
+        \item \textbf{Resource Scheduling Optimization:} Led resource scheduling optimization initiatives, significantly improving fleet-wide compute utilization and eliminating hardware stranding, by dynamically aligning auxiliary compute and memory allocations with primary ML accelerator requests.
+        \item \textbf{Reliability \& Security:} Enhanced fleet-wide hardware reliability and platform security by engineering automated preflight diagnostics and migrating legacy health-check execution paths into a safe-by-default, unprivileged architecture, mitigating critical vulnerabilities and reducing workload downtime.
+        \item \textbf{Team Leadership:} As Tech Lead, directed long-term infrastructure strategy and cross-functional engineering initiatives, accelerating overall team velocity and incident resolution, by authoring architectural roadmaps, establishing rigorous code-quality standards, and actively mentoring software engineers.
     \end{itemize}
 \end{itemize}
+
 \begin{itemize}
     \item Internship at Facebook \hfill \textit{From May., 2019 to Aug., 2019}
     \begin{itemize}
         \item Build fleet-wide GPU utilization regression detection and attribution dashboard.
         \item Discover and fix data consistency issues in GPU performance data.
-        \item Identify optimization opportunities and give improvement suggestions via automated 
-emails.
+        \item Identify optimization opportunities and give improvement suggestions via automated emails.
     \end{itemize}
 
 \end{itemize}
@@ -149,6 +154,7 @@ included as a variable in the experiment.
     \end{itemize}
 \end{extra}
 
+\begin{comment}
     \item Neural Network Classifier with Generalized Correntropy Loss \hfill \textit{From Jan., 2015 to
 May, 2015}
     \begin{itemize}
@@ -190,27 +196,37 @@ curricular academic science and technology competition.
     \end{itemize}
 \end{extra}
 
+\end{comment}
+
 \end{itemize}
 
 
 \section{Project Experience}
 
 \begin{itemize}
+    \item Self-Hosted Kubernetes Cluster (Homelab) \hfill \textit{From 2023 to present}
+    \begin{itemize}
+        \item Designed and provisioned a multi-node Kubernetes cluster (\textbf{k3s}) spanning across a WAN, managed entirely via \textbf{Pulumi} as Infrastructure as Code (IaC).
+        \item Implemented robust internal security with per-pod \textbf{mTLS} using \textbf{cert-manager} and automated service reloading upon certificate renewal.
+        \item Deployed and managed distributed storage using \textbf{JuiceFS} and centralized authentication via \textbf{Authelia} to secure internal web services.
+        \item Configured secure ingress and reverse proxying using \textbf{Traefik} with automated certificate provisioning.
+    \end{itemize}
+
     \item Activities on GitHub \hfill \textit{From 2012 to present}
     \begin{itemize}
         \item Contributed to several projects: KeepassXC, kmscon, Mono, CuteMarkEd, hid-apple-patched.
-        \item Side projects including a bencode library, network traffic capture and analyze, torrent list migration between uTorrent and qBittorrent.
+        \item Side projects including a rust unicode string truncation library, network traffic capture and analyze, torrent list migration between uTorrent and qBittorrent.
     \end{itemize}
 
     \item LLDB Support for KDevelop (Google Summer of Code) \hfill \textit{From May, 2016 to Aug., 2016}
     \begin{itemize}
         \item Extended KDevelop C/C++ debugger architecture to allow multiple debugger backends.
         \item Added LLDB backend for KDevelop, enabling C/C++ debugging through LLDB.
-        \item Successful Google Summer of Code project. Link:
-\url{https://summerofcode.withgoogle.com/archive/2016/projects/6014826014834688/}
+        \item Successful Google Summer of Code project. Link: \url{https://summerofcode.withgoogle.com/archive/2016/projects/6014826014834688/}
         \item Keep contributing to the KDevelop after the GSoC period.
     \end{itemize}
 
+\begin{comment}
     \item Contribution to open source Mozilla project \hfill \textit{From June, 2014 to 2015}
     \begin{itemize}
         \item Fixed several bugs (features) in JavaScript JIT Engine.
@@ -238,6 +254,7 @@ of 8.
 cylindrical surface.
         \item The algorithm can adapt to different body parameters.
     \end{itemize}
+\end{comment}
 
 \end{itemize}
 
