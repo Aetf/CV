@@ -1,0 +1,7 @@
+[doc]
+name = "data"
+bundle = "https://relay.fullyjustified.net/default_bundle_v33.tar"
+
+[[output]]
+name = "resume"
+type = "pdf"
