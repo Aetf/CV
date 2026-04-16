@@ -1,7 +1,12 @@
 \documentclass[letterpaper,11pt]{article}
 \usepackage{cv,booktabs,fontawesome}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{ifxetex}
+\ifxetex
+  % XeTeX handles UTF-8 and fonts natively
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
 \usepackage{hyperref}
 
 % Selectively show some content or not
@@ -21,7 +26,15 @@
 \titlespacing{\section}{0pt}{3ex}{1ex}
 
 % bib reference font
-\usepackage[sfdefault,lf,t]{carlito}
+\ifxetex
+  \usepackage{fontspec}
+  \setmainfont{Noto Sans}[Scale=0.95]
+  \setsansfont{Noto Sans}[Scale=0.95]
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage[sfdefault,lf,t]{carlito}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
 \renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
 \usepackage{inconsolata}
 
