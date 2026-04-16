@@ -1,13 +1,25 @@
-FROM alpine:latest
-LABEL org.opencontainers.image.source="https://github.com/Aetf/cv"
+FROM ubuntu:24.04
 
-# Install Tectonic and Make
-RUN apk update && apk add tectonic make biber font-noto
+RUN apt-get update && apt-get install -y \
+    curl \
+    tar \
+    ca-certificates \
+    fontconfig \
+    fonts-noto \
+    make \
+    libgraphite2-3 \
+    && rm -rf /var/lib/apt/lists/*
 
-# Wrapper to inject search paths
-RUN mv /usr/bin/tectonic /usr/bin/tectonic.bin && \
-    echo '#!/bin/sh' > /usr/bin/tectonic && \
-    echo 'exec /usr/bin/tectonic.bin -X compile -Z search-path=/usr/share/texmf-dist/tex/latex/biblatex -Z search-path=/usr/share/texmf-dist/tex/latex/biblatex/bbx -Z search-path=/usr/share/texmf-dist/tex/latex/biblatex/cbx -Z search-path=/data/cv/lib -Z search-path=/data/resume/lib "$@"' >> /usr/bin/tectonic && \
-    chmod +x /usr/bin/tectonic
+# Install Tectonic 0.15.0
+RUN curl -L -o tectonic.tar.gz https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic@0.16.8/tectonic-0.16.8-x86_64-unknown-linux-gnu.tar.gz && \
+    tar -xzf tectonic.tar.gz && \
+    mv tectonic /usr/bin/tectonic && \
+    rm tectonic.tar.gz
+
+# Install Biber 2.17 to match Tectonic's biblatex 3.17
+RUN curl -L -o biber.tar.gz https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/2.17/binaries/Linux/biber-linux_x86_64.tar.gz && \
+    tar -xzf biber.tar.gz && \
+    mv biber /usr/bin/biber && \
+    rm biber.tar.gz
 
 WORKDIR /data
