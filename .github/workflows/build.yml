@@ -13,23 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Setup Tectonic
-      uses: wtfjoke/setup-tectonic@v4
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup Just
+      uses: extra-actions/setup-just@v1
 
-    - name: Install Biber and Biblatex
-      run: sudo apt-get update && sudo apt-get install -y biber texlive-bibtex-extra
-
-    - name: Build CV
-      run: |
-        mkdir -p build
-        tectonic -Z search-path=/usr/share/texlive/texmf-dist/tex/latex/biblatex -Z search-path=cv/lib -o build cv/cv.tex
-
-    - name: Build Resume
-      run: |
-        mkdir -p build
-        tectonic -Z search-path=resume/lib -o build resume/resume.tex
+    - name: Build PDFs using Just
+      run: just
 
     - name: Upload CV Artifact
       uses: actions/upload-artifact@v4
