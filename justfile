@@ -3,7 +3,7 @@ default: cv resume
 build-image:
     podman pull ghcr.io/aetf/cv:latest || true
     podman pull ghcr.io/aetf/cv/cache:latest || true
-    podman build --cache-from ghcr.io/aetf/cv/cache:latest --cache-to ghcr.io/aetf/cv/cache:latest -t ghcr.io/aetf/cv:latest {{justfile_directory()}}
+    podman build --layers --cache-from ghcr.io/aetf/cv/cache:latest --cache-to ghcr.io/aetf/cv/cache:latest -t ghcr.io/aetf/cv:latest {{justfile_directory()}}
 
 cv: build-image
     mkdir -p build
