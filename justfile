@@ -1,7 +1,12 @@
 default: cv resume
 
-cv:
-    podman run --rm -v {{justfile_directory()}}/cv:/data -w /data cv-tectonic tectonic -Z search-path=/usr/share/texmf-dist/tex/latex/biblatex -Z search-path=/usr/share/texmf-dist/tex/latex/biblatex/bbx -Z search-path=/usr/share/texmf-dist/tex/latex/biblatex/cbx -Z search-path=lib cv.tex
+build-image:
+    podman build -t cv-tectonic {{justfile_directory()}}
 
-resume:
-    podman run --rm -v {{justfile_directory()}}/resume:/data -w /data cv-tectonic tectonic -Z search-path=lib resume.tex
+cv: build-image
+    mkdir -p build
+    podman run --rm -v {{justfile_directory()}}:/data -w /data cv-tectonic tectonic -o build cv/cv.tex
+
+resume: build-image
+    mkdir -p build
+    podman run --rm -v {{justfile_directory()}}:/data -w /data cv-tectonic tectonic -o build resume/resume.tex

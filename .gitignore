@@ -20,3 +20,4 @@ resume.pdf
 _minted-*
 *.kate-swp
 .kile
+/build/

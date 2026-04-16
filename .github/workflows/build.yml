@@ -23,22 +23,22 @@ jobs:
 
     - name: Build CV
       run: |
-        cd cv
-        tectonic -Z search-path=/usr/share/texlive/texmf-dist/tex/latex/biblatex -Z search-path=lib cv.tex
+        mkdir -p build
+        tectonic -Z search-path=/usr/share/texlive/texmf-dist/tex/latex/biblatex -Z search-path=cv/lib -o build cv/cv.tex
 
     - name: Build Resume
       run: |
-        cd resume
-        tectonic -Z search-path=lib resume.tex
+        mkdir -p build
+        tectonic -Z search-path=resume/lib -o build resume/resume.tex
 
     - name: Upload CV Artifact
       uses: actions/upload-artifact@v4
       with:
         name: cv-pdf
-        path: cv/cv.pdf
+        path: build/cv.pdf
 
     - name: Upload Resume Artifact
       uses: actions/upload-artifact@v4
       with:
         name: resume-pdf
-        path: resume/resume.pdf
+        path: build/resume.pdf
