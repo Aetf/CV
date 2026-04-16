@@ -21,3 +21,5 @@ _minted-*
 *.kate-swp
 .kile
 /build/
+cv/build/
+resume/build/
