@@ -1,0 +1,7 @@
+[doc]
+name = "cv"
+bundle = "https://relay.fullyjustified.net/default_bundle_v33.tar"
+
+[[output]]
+name = "cv"
+type = "pdf"
