@@ -16,10 +16,10 @@ RUN curl -L -o tectonic.tar.gz https://github.com/tectonic-typesetting/tectonic/
     mv tectonic /usr/bin/tectonic && \
     rm tectonic.tar.gz
 
-# Install Biber 2.20 from local file
-COPY biber-2.20.tar.gz /tmp/
-RUN tar -xzf /tmp/biber-2.20.tar.gz -C /tmp && \
-    mv /tmp/biber /usr/bin/biber && \
-    rm /tmp/biber-2.20.tar.gz
+# Install Biber 2.20 to match the new bundle
+RUN curl -L -o biber.tar.gz https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/2.20/binaries/Linux/biber-linux_x86_64.tar.gz/download && \
+    tar -xzf biber.tar.gz && \
+    mv biber /usr/bin/biber && \
+    rm biber.tar.gz
 
 WORKDIR /data
