@@ -1,6 +1,6 @@
 [doc]
 name = "cv"
-bundle = "https://relay.fullyjustified.net/default_bundle_v33.tar"
+bundle = "https://arthomnix.dev/tectonic/texlive2025-0308.ttb"
 
 [[output]]
 name = "cv"
