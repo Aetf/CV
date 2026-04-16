@@ -26,15 +26,8 @@
 \titlespacing{\section}{0pt}{3ex}{1ex}
 
 % bib reference font
-\ifxetex
-  \usepackage{fontspec}
-  \setmainfont{Noto Sans}[Scale=0.95]
-  \setsansfont{Noto Sans}[Scale=0.95]
-  \renewcommand{\familydefault}{\sfdefault}
-\else
-  \usepackage[sfdefault,lf,t]{carlito}
-  \renewcommand{\familydefault}{\sfdefault}
-\fi
+\usepackage[sfdefault,condensed]{roboto}
+\renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
 \usepackage{inconsolata}
 
