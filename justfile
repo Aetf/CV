@@ -1,12 +1,13 @@
 default: cv resume
 
 build-image:
-    podman build -t cv-tectonic {{justfile_directory()}}
+    podman pull ghcr.io/aetf/cv:latest || true
+    podman build --cache-from ghcr.io/aetf/cv -t ghcr.io/aetf/cv:latest {{justfile_directory()}}
 
 cv: build-image
     mkdir -p build
-    podman run --rm -v {{justfile_directory()}}:/data -w /data cv-tectonic tectonic -o build cv/cv.tex
+    podman run --rm -v {{justfile_directory()}}:/data -w /data ghcr.io/aetf/cv:latest tectonic -o build cv/cv.tex
 
 resume: build-image
     mkdir -p build
-    podman run --rm -v {{justfile_directory()}}:/data -w /data cv-tectonic tectonic -o build resume/resume.tex
+    podman run --rm -v {{justfile_directory()}}:/data -w /data ghcr.io/aetf/cv:latest tectonic -o build resume/resume.tex
