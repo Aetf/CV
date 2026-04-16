@@ -1,4 +1,5 @@
 FROM alpine:latest
+LABEL org.opencontainers.image.source="https://github.com/Aetf/cv"
 
 # Install Tectonic and Make
 RUN apk update && apk add tectonic make biber font-noto
