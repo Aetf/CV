@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - uses: actions/checkout@v4
@@ -39,3 +41,15 @@ jobs:
       with:
         name: resume-pdf
         path: build/resume.pdf
+
+    - name: Create/Update Release
+      uses: softprops/action-gh-release@v2
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+      with:
+        tag_name: latest
+        name: Latest Continuous Build
+        body: Automated build from latest commit.
+        files: |
+          build/cv.pdf
+          build/resume.pdf
+        prerelease: true

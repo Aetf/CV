@@ -43,3 +43,6 @@ The output PDFs will be generated in their respective directories: -
 
 A GitHub Action workflow is configured to build and publish the PDFs as
 artifacts on every push to `main` or `master`.
+
+The latest built PDFs are available as assets in the
+[Latest Release](https://github.com/Aetf/cv/releases/tag/latest).
