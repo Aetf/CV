@@ -11,10 +11,20 @@ build-image:
 
 cv: build-image
     mkdir -p build/cache
-    podman run --rm -v {{justfile_directory()}}/cv:/data -v {{justfile_directory()}}/build/cache:/root/.cache/Tectonic -w /data ghcr.io/aetf/cv:latest tectonic -X build
-    cp cv/build/cv/cv.pdf build/cv.pdf
+    podman run --rm \
+        -v {{justfile_directory()}}/cv:/data:O \
+        -v {{justfile_directory()}}/build:/data/build \
+        -v {{justfile_directory()}}/build/cache:/root/.cache/Tectonic \
+        ghcr.io/aetf/cv:latest \
+        tectonic -X build
+    mv build/cv/cv.pdf build/cv.pdf
 
 resume: build-image
     mkdir -p build/cache
-    podman run --rm -v {{justfile_directory()}}/resume:/data -v {{justfile_directory()}}/build/cache:/root/.cache/Tectonic -w /data ghcr.io/aetf/cv:latest tectonic -X build
-    cp resume/build/resume/resume.pdf build/resume.pdf
+    podman run --rm \
+        -v {{justfile_directory()}}/resume:/data:O \
+        -v {{justfile_directory()}}/build:/data/build \
+        -v {{justfile_directory()}}/build/cache:/root/.cache/Tectonic \
+        ghcr.io/aetf/cv:latest \
+        tectonic -X build
+    mv build/resume/resume.pdf build/resume.pdf
